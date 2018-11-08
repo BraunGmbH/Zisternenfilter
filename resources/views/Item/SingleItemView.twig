@@ -1,16 +1,16 @@
 {{ services.lastSeen.setLastSeenMaxCount(config("Ceres.item.lists.last_seen_number")) }}
 
-{{ component( "ZisterneInfo::Item.Components.VariationSelect" ) }}
-{{ component( "ZisterneInfo::Item.Components.ItemImageCarousel" ) }}
+{{ component( "Zisternenfilter::Item.Components.VariationSelect" ) }}
+{{ component( "Zisternenfilter::Item.Components.ItemImageCarousel" ) }}
 {{ component( "Ceres::Item.Components.AddToWishList" ) }}
 {{ component( "Ceres::Item.Components.OrderProperties" ) }}
 {{ component( "Ceres::Item.Components.OrderPropertyList" ) }}
-{{ component( "ZisterneInfo::Item.Components.SingleItem" ) }}
+{{ component( "Zisternenfilter::Item.Components.SingleItem" ) }}
 {{ component( "Ceres::Item.Components.GraduatedPrices" ) }}
 {{ component( "Ceres::Basket.Components.AddToBasket" ) }}
 {{ component( "Ceres::Item.Components.ItemBundle" ) }}
-{{ component("ZisterneInfo::Containers.Components.ContainerItemList") }}
-{{ component( "ZisterneInfo::ItemList.Components.CategoryItem" ) }}
+{{ component("Zisternenfilter::Containers.Components.ContainerItemList") }}
+{{ component( "Zisternenfilter::ItemList.Components.CategoryItem" ) }}
 
 <single-item v-cloak template="#vue-single-item" :item-data="{{ item | json_encode }}" :variation-list-data="{{ variations | json_encode }}" :attribute-name-map="{{attributeNameMap | json_encode}}">
     <div slot="BeforePrice">{{ LayoutContainer.show("Ceres::SingleItem.BeforePrice", item.documents[0].data) }}</div>
@@ -24,7 +24,7 @@
     <div slot="ItemListContainer">{{ LayoutContainer.show("Ceres::SingleItem.ItemListContainer", item) }}</div>
     <div slot="FeedbackContainer">{{ LayoutContainer.show("Ceres::SingleItem.FeedbackContainer", item) }}</div>
     <div slot="ImageCarousel">
-        {% set ImageCarouselOverride = LayoutContainer.show("ZisterneInfo::SingleItem.ImageCarousel") %}
+        {% set ImageCarouselOverride = LayoutContainer.show("Zisternenfilter::SingleItem.ImageCarousel") %}
         {% if ImageCarouselOverride|trim is empty %}
             <item-image-carousel image-url-accessor="url" template="#vue-item-image-carousel"></item-image-carousel>
         {% else %}
@@ -61,7 +61,7 @@
       <p class="downloads" slot="Download">
         {%  for variationProperty in item.documents[0].data.variationProperties %}
            {% if variationProperty.property.id == 4 %}
-             <span class="tabStop">{{ trans("ZisterneInfo::Template.singleItemDownloads") }}: </span><span class="downloadDatei hidden">{{ variationProperty.values.value }}</span>
+             <span class="tabStop">{{ trans("Zisternenfilter::Template.singleItemDownloads") }}: </span><span class="downloadDatei hidden">{{ variationProperty.values.value }}</span>
              <span class="tabStop2"><ul class="data"><li>&nbsp;</li></ul></span>
           {% endif %}
         {% endfor %}

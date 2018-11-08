@@ -1,6 +1,6 @@
 <?php
 
-namespace ZisterneInfo\Providers;
+namespace Zisternenfilter\Providers;
 
 use Ceres\Caching\NavigationCacheSettings;
 use Ceres\Caching\SideNavigationCacheSettings;
@@ -11,14 +11,14 @@ use Plenty\Plugin\Templates\Twig;
 use IO\Helper\TemplateContainer;
 use IO\Extensions\Functions\Partial;
 use Plenty\Plugin\ConfigRepository;
-use ZisterneInfo\Contexts\MyContext;
+use Zisternenfilter\Contexts\MyContext;
 use IO\Services\ItemSearch\Helper\ResultFieldTemplate;
 
 /**
- * Class ZisterneInfoServiceProvider
- * @package ZisterneInfo\Providers
+ * Class ZisternenfilterServiceProvider
+ * @package Zisternenfilter\Providers
  */
-class ZisterneInfoServiceProvider extends ServiceProvider
+class ZisternenfilterServiceProvider extends ServiceProvider
 {
     const PRIORITY = 0;
 
@@ -30,7 +30,7 @@ class ZisterneInfoServiceProvider extends ServiceProvider
     public function boot(Twig $twig, Dispatcher $dispatcher, ConfigRepository $config)
     {
 
-        $enabledOverrides = explode(", ", $config->get("ZisterneInfo.templates.override"));
+        $enabledOverrides = explode(", ", $config->get("Zisternenfilter.templates.override"));
 
         $dispatcher->listen('IO.ctx.item', function (TemplateContainer $templateContainer, $templateData = [])
         {
@@ -39,7 +39,7 @@ class ZisterneInfoServiceProvider extends ServiceProvider
         }, 0);
 
         $dispatcher->listen('IO.ResultFields.*', function(ResultFieldTemplate $templateContainer) {
-            $templateContainer->setTemplates([ ResultFieldTemplate::TEMPLATE_LIST_ITEM => 'ZisterneInfo::ResultFields.ListItem' ]);
+            $templateContainer->setTemplates([ ResultFieldTemplate::TEMPLATE_LIST_ITEM => 'Zisternenfilter::ResultFields.ListItem' ]);
         }, 0);
 
 
@@ -47,8 +47,8 @@ class ZisterneInfoServiceProvider extends ServiceProvider
         // Override partials
         $dispatcher->listen('IO.init.templates', function (Partial $partial) use ($enabledOverrides)
         {
-            pluginApp(Container::class)->register('ZisterneInfo::PageDesign.Partials.Header.NavigationList.twig', NavigationCacheSettings::class);
-            pluginApp(Container::class)->register('ZisterneInfo::PageDesign.Partials.Header.SideNavigation.twig', SideNavigationCacheSettings::class);
+            pluginApp(Container::class)->register('Zisternenfilter::PageDesign.Partials.Header.NavigationList.twig', NavigationCacheSettings::class);
+            pluginApp(Container::class)->register('Zisternenfilter::PageDesign.Partials.Header.SideNavigation.twig', SideNavigationCacheSettings::class);
 
             $partial->set('head', 'Ceres::PageDesign.Partials.Head');
             $partial->set('header', 'Ceres::PageDesign.Partials.Header.Header');
@@ -57,22 +57,22 @@ class ZisterneInfoServiceProvider extends ServiceProvider
 
             if (in_array("head", $enabledOverrides) || in_array("all", $enabledOverrides))
             {
-                $partial->set('head', 'ZisterneInfo::PageDesign.Partials.Head');
+                $partial->set('head', 'Zisternenfilter::PageDesign.Partials.Head');
             }
 
             if (in_array("header", $enabledOverrides) || in_array("all", $enabledOverrides))
             {
-                $partial->set('header', 'ZisterneInfo::PageDesign.Partials.Header.Header');
+                $partial->set('header', 'Zisternenfilter::PageDesign.Partials.Header.Header');
             }
 
             if (in_array("page_design", $enabledOverrides) || in_array("all", $enabledOverrides))
             {
-                $partial->set('page-design', 'ZisterneInfo::PageDesign.PageDesign');
+                $partial->set('page-design', 'Zisternenfilter::PageDesign.PageDesign');
             }
 
             if (in_array("footer", $enabledOverrides) || in_array("all", $enabledOverrides))
             {
-                $partial->set('footer', 'ZisterneInfo::PageDesign.Partials.Footer');
+                $partial->set('footer', 'Zisternenfilter::PageDesign.Partials.Footer');
             }
 
             return false;
@@ -84,7 +84,7 @@ class ZisterneInfoServiceProvider extends ServiceProvider
 
             $dispatcher->listen('IO.tpl.home', function (TemplateContainer $container)
             {
-                $container->setTemplate('ZisterneInfo::Homepage.Homepage');
+                $container->setTemplate('Zisternenfilter::Homepage.Homepage');
                 return false;
             }, self::PRIORITY);
         }
@@ -95,7 +95,7 @@ class ZisterneInfoServiceProvider extends ServiceProvider
 
             $dispatcher->listen('IO.tpl.category.content', function (TemplateContainer $container)
             {
-                $container->setTemplate('ZisterneInfo::Category.Content.CategoryContent');
+                $container->setTemplate('Zisternenfilter::Category.Content.CategoryContent');
                 return false;
             }, self::PRIORITY);
         }
@@ -106,7 +106,7 @@ class ZisterneInfoServiceProvider extends ServiceProvider
 
             $dispatcher->listen('IO.tpl.category.item', function (TemplateContainer $container)
             {
-                $container->setTemplate('ZisterneInfo::Category.Item.CategoryItem');
+                $container->setTemplate('Zisternenfilter::Category.Item.CategoryItem');
                 return false;
             }, self::PRIORITY);
         }
@@ -117,7 +117,7 @@ class ZisterneInfoServiceProvider extends ServiceProvider
 
             $dispatcher->listen('IO.tpl.basket', function (TemplateContainer $container)
             {
-                $container->setTemplate('ZisterneInfo::Basket.Basket');
+                $container->setTemplate('Zisternenfilter::Basket.Basket');
                 return false;
             }, self::PRIORITY);
         }
@@ -128,7 +128,7 @@ class ZisterneInfoServiceProvider extends ServiceProvider
 
             $dispatcher->listen('IO.tpl.checkout', function (TemplateContainer $container)
             {
-                $container->setTemplate('ZisterneInfo::Checkout.CheckoutView');
+                $container->setTemplate('Zisternenfilter::Checkout.CheckoutView');
                 return false;
             }, self::PRIORITY);
         }
@@ -139,7 +139,7 @@ class ZisterneInfoServiceProvider extends ServiceProvider
 
             $dispatcher->listen('IO.tpl.confirmation', function (TemplateContainer $container)
             {
-                $container->setTemplate('ZisterneInfo::Checkout.OrderConfirmation');
+                $container->setTemplate('Zisternenfilter::Checkout.OrderConfirmation');
                 return false;
             }, self::PRIORITY);
         }
@@ -150,7 +150,7 @@ class ZisterneInfoServiceProvider extends ServiceProvider
 
             $dispatcher->listen('IO.tpl.login', function (TemplateContainer $container)
             {
-                $container->setTemplate('ZisterneInfo::Customer.Login');
+                $container->setTemplate('Zisternenfilter::Customer.Login');
                 return false;
             }, self::PRIORITY);
         }
@@ -161,7 +161,7 @@ class ZisterneInfoServiceProvider extends ServiceProvider
 
             $dispatcher->listen('IO.tpl.register', function (TemplateContainer $container)
             {
-                $container->setTemplate('ZisterneInfo::Customer.Register');
+                $container->setTemplate('Zisternenfilter::Customer.Register');
                 return false;
             }, self::PRIORITY);
         }
@@ -172,7 +172,7 @@ class ZisterneInfoServiceProvider extends ServiceProvider
 
             $dispatcher->listen('IO.tpl.item', function (TemplateContainer $container)
             {
-                $container->setTemplate('ZisterneInfo::Item.SingleItemWrapper');
+                $container->setTemplate('Zisternenfilter::Item.SingleItemWrapper');
                 return false;
             }, self::PRIORITY);
         }
@@ -183,7 +183,7 @@ class ZisterneInfoServiceProvider extends ServiceProvider
 
             $dispatcher->listen('IO.tpl.search', function (TemplateContainer $container)
             {
-                $container->setTemplate('ZisterneInfo::ItemList.ItemListView');
+                $container->setTemplate('Zisternenfilter::ItemList.ItemListView');
                 return false;
             }, self::PRIORITY);
         }
@@ -194,7 +194,7 @@ class ZisterneInfoServiceProvider extends ServiceProvider
 
             $dispatcher->listen('IO.tpl.my-account', function (TemplateContainer $container)
             {
-                $container->setTemplate('ZisterneInfo::MyAccount.MyAccount');
+                $container->setTemplate('Zisternenfilter::MyAccount.MyAccount');
                 return false;
             }, self::PRIORITY);
         }
@@ -205,7 +205,7 @@ class ZisterneInfoServiceProvider extends ServiceProvider
 
             $dispatcher->listen('IO.tpl.cancellation-rights', function (TemplateContainer $container)
             {
-                $container->setTemplate('ZisterneInfo::StaticPages.CancellationRights');
+                $container->setTemplate('Zisternenfilter::StaticPages.CancellationRights');
                 return false;
             }, self::PRIORITY);
         }
@@ -216,7 +216,7 @@ class ZisterneInfoServiceProvider extends ServiceProvider
 
             $dispatcher->listen('IO.tpl.legal-disclosure', function (TemplateContainer $container)
             {
-                $container->setTemplate('ZisterneInfo::StaticPages.LegalDisclosure');
+                $container->setTemplate('Zisternenfilter::StaticPages.LegalDisclosure');
                 return false;
             }, self::PRIORITY);
         }
@@ -227,7 +227,7 @@ class ZisterneInfoServiceProvider extends ServiceProvider
 
             $dispatcher->listen('IO.tpl.privacy-policy', function (TemplateContainer $container)
             {
-                $container->setTemplate('ZisterneInfo::StaticPages.PrivacyPolicy');
+                $container->setTemplate('Zisternenfilter::StaticPages.PrivacyPolicy');
                 return false;
             }, self::PRIORITY);
         }
@@ -238,7 +238,7 @@ class ZisterneInfoServiceProvider extends ServiceProvider
 
             $dispatcher->listen('IO.tpl.terms-conditions', function (TemplateContainer $container)
             {
-                $container->setTemplate('ZisterneInfo::StaticPages.TermsAndConditions');
+                $container->setTemplate('Zisternenfilter::StaticPages.TermsAndConditions');
                 return false;
             }, self::PRIORITY);
         }
@@ -249,7 +249,7 @@ class ZisterneInfoServiceProvider extends ServiceProvider
 
             $dispatcher->listen('IO.tpl.item-not-found', function (TemplateContainer $container)
             {
-                $container->setTemplate('ZisterneInfo::StaticPages.ItemNotFound');
+                $container->setTemplate('Zisternenfilter::StaticPages.ItemNotFound');
                 return false;
             }, self::PRIORITY);
         }
@@ -260,7 +260,7 @@ class ZisterneInfoServiceProvider extends ServiceProvider
 
             $dispatcher->listen('IO.tpl.page-not-found', function (TemplateContainer $container)
             {
-                $container->setTemplate('ZisterneInfo::StaticPages.PageNotFound');
+                $container->setTemplate('Zisternenfilter::StaticPages.PageNotFound');
                 return false;
             }, self::PRIORITY);
         }

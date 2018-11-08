@@ -2,11 +2,11 @@
 
 {% block PageBody %}
 
-    {{ component( "ZisterneInfo::ItemList.Components.ItemList" ) }}
-    {{ component( "ZisterneInfo::ItemList.Components.CategoryItem" ) }}
+    {{ component( "Zisternenfilter::ItemList.Components.ItemList" ) }}
+    {{ component( "Zisternenfilter::ItemList.Components.CategoryItem" ) }}
     {{ component( "Ceres::ItemList.Components.ItemListSorting" ) }}
     {{ component( "Ceres::ItemList.Components.Pagination" ) }}
-    {{ component( "ZisterneInfo::ItemList.Components.Filter.ItemFilterList") }}
+    {{ component( "Zisternenfilter::ItemList.Components.Filter.ItemFilterList") }}
     {{ component( "Ceres::ItemList.Components.Filter.ItemFilterTagList") }}
 
 <div class="page-content container {% if isSearch %} searchPage{% endif %}">
@@ -14,7 +14,7 @@
       <aside class="col-xs-3">
         <div class="sidebar-categories">
           <p class="asideHeadline">Kategorien</p>
-            {{ include('ZisterneInfo::PageDesign.Partials.Header.SideNavigation.twig') }}
+            {{ include('Zisternenfilter::PageDesign.Partials.Header.SideNavigation.twig') }}
         </div>
         {{ LayoutContainer.show("Ceres::CategoryItem.SideNavBarBottom") }}
         <div class="filterPanel">

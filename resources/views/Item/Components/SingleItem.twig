@@ -26,13 +26,13 @@
 
                   <hr>
                   <p class="rating">
-                  <span class="tabStop">{{ trans("ZisterneInfo::Template.singleItemRating") }}: </span><span class="tabStop2"><slot name="BeforePrice"></slot></span>
+                  <span class="tabStop">{{ trans("Zisternenfilter::Template.singleItemRating") }}: </span><span class="tabStop2"><slot name="BeforePrice"></slot></span>
                   </p>
                   <p class="articlenumber">
                     <span class="tabStop">{{ trans("Ceres::Template.singleItemNumber") }}: </span><span class="tabStop2">${ currentVariation.variation.number }</span>
                   </p>
                   <p v-if="currentVariation.variation.availability" class="availability">
-                    <span class="tabStop">{{ trans("ZisterneInfo::Template.singleItemAvailability") }}: </span><span class="tabStop2"> <slot name="Lieferzeit"></slot></span>
+                    <span class="tabStop">{{ trans("Zisternenfilter::Template.singleItemAvailability") }}: </span><span class="tabStop2"> <slot name="Lieferzeit"></slot></span>
                   </p>
                   <slot name="Download"></slot>
 
@@ -61,7 +61,7 @@
                     {% if ('item.recommendedPrice' in itemData or 'all' in itemData) %}
                         <div class="crossprice" v-if="currentVariation.prices.rrp && currentVariation.prices.rrp.price.value > 0 && currentVariation.prices.rrp.price.value > currentVariation.prices.default.price.value">
                             <del class="text-muted small">
-                                {{ trans("ZisterneInfo::Template.UVP") }} ${ currentVariation.prices.rrp.price.formatted }
+                                {{ trans("Zisternenfilter::Template.UVP") }} ${ currentVariation.prices.rrp.price.formatted }
                             </del>
                         </div>
                     {% endif %}
@@ -86,8 +86,8 @@
 
 
                     <span class="vat">
-                    {{ trans("ZisterneInfo::Template.singleItemVatTXT1") }} <span class="fa fa-arrow-right"></span>
-                     <a {% if shippingCat is not empty %} data-toggle="modal" href="#shippingscosts"{% endif %} title="{{ trans("ZisterneInfo::Template.singleItemVatTXT2") }}">{{ trans("ZisterneInfo::Template.singleItemVatTXT2") }}</a>
+                    {{ trans("Zisternenfilter::Template.singleItemVatTXT1") }} <span class="fa fa-arrow-right"></span>
+                     <a {% if shippingCat is not empty %} data-toggle="modal" href="#shippingscosts"{% endif %} title="{{ trans("Zisternenfilter::Template.singleItemVatTXT2") }}">{{ trans("Zisternenfilter::Template.singleItemVatTXT2") }}</a>
                  </span>
 
 
@@ -136,7 +136,7 @@
                         </li>
 
                           <li class="nav-item">
-                              <a :class="{ 'active': !isDescriptionTabActive && !isTechnicalDataTabActive }" class="nav-link" data-toggle="tab" href="#assessments-details" role="tab">{{ trans("ZisterneInfo::Template.singleItemRating") }}</a>
+                              <a :class="{ 'active': !isDescriptionTabActive && !isTechnicalDataTabActive }" class="nav-link" data-toggle="tab" href="#assessments-details" role="tab">{{ trans("Zisternenfilter::Template.singleItemRating") }}</a>
                           </li>
                         <slot name="AddDetailTabs"></slot>
                     </ul>

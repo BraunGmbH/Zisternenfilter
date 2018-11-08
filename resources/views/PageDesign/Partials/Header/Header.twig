@@ -3,7 +3,7 @@
 {{ component( "Ceres::Customer.Components.UserLoginHandler" ) }}
 {{ component( "Ceres::PageDesign.Components.ShippingCountrySelect" ) }}
 {{ component( "Ceres::PageDesign.Components.MobileNavigation" ) }}
-{{ component( "ZisterneInfo::ItemList.Components.ItemSearch" ) }}
+{{ component( "Zisternenfilter::ItemList.Components.ItemSearch" ) }}
 {{ component( "Ceres::WishList.Components.WishListCount" ) }}
 {{ component( "Ceres::Basket.Components.BasketPreviewHover" ) }}
 
@@ -20,9 +20,9 @@
         <div id="topBar">
             <div class="container-max">
               <ul id="headerLinks">
-                <li><a data-toggle="modal" href="#hotline" class="hidden-xs-down"><i class="fa fa-check-circle"></i>{{ trans("ZisterneInfo::Template.headerHotlineTxt") }} {{ trans("ZisterneInfo::Template.headerHotlineNr") }}</a><a data-toggle="modal" href="#hotline" class="hidden-sm-up"><i class="fa fa-phone"></i><span class="pipe"></span></a></li>
-                <li><a data-toggle="modal" href="#ssl"><i class="fa fa-check-circle"></i>{{ trans("ZisterneInfo::Template.headerSSL") }}</a></li>
-                <li><a data-toggle="modal" href="#lieferung"><i class="fa fa-check-circle"></i>{{ trans("ZisterneInfo::Template.headerLieferung") }}</a></li>
+                <li><a data-toggle="modal" href="#hotline" class="hidden-xs-down"><i class="fa fa-check-circle"></i>{{ trans("Zisternenfilter::Template.headerHotlineTxt") }} {{ trans("Zisternenfilter::Template.headerHotlineNr") }}</a><a data-toggle="modal" href="#hotline" class="hidden-sm-up"><i class="fa fa-phone"></i><span class="pipe"></span></a></li>
+                <li><a data-toggle="modal" href="#ssl"><i class="fa fa-check-circle"></i>{{ trans("Zisternenfilter::Template.headerSSL") }}</a></li>
+                <li><a data-toggle="modal" href="#lieferung"><i class="fa fa-check-circle"></i>{{ trans("Zisternenfilter::Template.headerLieferung") }}</a></li>
               </ul>
                 <ul id="controlsList" class="controls-list list-inline">
                     <li class="list-inline-item control-user">
@@ -75,10 +75,10 @@
                   <span>TÜV Süd</<span>
                 </div>
         </div>
-        {% include "ZisterneInfo::PageDesign.Partials.Header.Navigation" %}
+        {% include "Zisternenfilter::PageDesign.Partials.Header.Navigation" %}
         {% if not services.template.isHome() and not services.template.isMyAccount() and not services.template.isCheckout() %}
           <div id="breadcrumbs">
-            {% include "ZisterneInfo::PageDesign.Partials.Header.Breadcrumb" %}
+            {% include "Zisternenfilter::PageDesign.Partials.Header.Breadcrumb" %}
           </div>
         {% endif %}
 </header>

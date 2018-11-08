@@ -1,4 +1,4 @@
-# Release Notes for ZisterneInfo
+# Release Notes for Zisternenfilter
 
 ## v0.0.1 (2017-08-02)
 

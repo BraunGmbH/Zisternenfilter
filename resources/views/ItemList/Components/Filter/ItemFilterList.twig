@@ -1,6 +1,6 @@
 <script type="x/template" id="vue-item-filter-list">
     <div class="filter-wrapper" v-show="facets && facets.length > 0">
-        {{ component( "ZisterneInfo::ItemList.Components.Filter.ItemFilter") }}
+        {{ component( "Zisternenfilter::ItemList.Components.Filter.ItemFilter") }}
         {{ component( "Ceres::ItemList.Components.Filter.ItemFilterPrice") }}
 
         <a class="btn btn-link filter-toggle hidden-md-up" data-toggle="collapse" href="#filterCollapse" aria-expanded="false" aria-controls="filterCollapse" @click="toggleOpeningState()">

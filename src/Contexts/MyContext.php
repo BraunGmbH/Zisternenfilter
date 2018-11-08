@@ -1,5 +1,5 @@
 <?php
-namespace ZisterneInfo\Contexts;
+namespace Zisternenfilter\Contexts;
 
 use IO\Helper\ContextInterface;
 use Ceres\Contexts\SingleItemContext;
