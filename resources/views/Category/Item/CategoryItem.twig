@@ -52,7 +52,7 @@
           </div>
           <div id="category-description-container" class="category-description">{{ category.details[0].description | raw }}</div>
 
-
+        <!-- AUSGEBLENDET DZ
         <!-- TMP Muss Angepasste werden wenn SubCat exist-->
         <div class="subCat">
           <div class="row">
@@ -62,6 +62,8 @@
           </div>
         </div>
         <!-- ENDE TMP -->
+        AUSGEBLENDET DZ -->
+
         <div id="twig-rendered-item-list" class="item-list-frame{% if ceresConfig.item.loadingAnimationType == "blur" %} blur-effect{% endif %}">
             {% if ceresConfig.item.loadingAnimationType != "blur" %}
                 {% include "Ceres::ItemList.Partials.LoadingAnimation" %}
