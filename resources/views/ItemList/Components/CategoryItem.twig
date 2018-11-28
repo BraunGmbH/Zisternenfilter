@@ -1,4 +1,4 @@
-{{ component( "Ceres::Basket.Components.AddToBasket" ) }}
+{{ component( "Zisternenfilter::Basket.Components.AddToBasket" ) }}
 {{ component( "Ceres::ItemList.Components.CategoryImageCarousel") }}
 {{ component( "Ceres::ItemList.Components.ItemStoreSpecial" ) }}
 
@@ -55,14 +55,10 @@
                       ${ itemData.prices.default.unitPrice.formatted }
                   </div>
                    <div class="artSold" v-if="itemData.variationProperties[0]">
-                      <p>${ itemData.variationProperties[0].values.value } verkauft*</p>
+                      <p v-if="itemData.variationProperties[0].property.id == 1">${ itemData.variationProperties[0].values.value } verkauft*</p>
                   </div>
               </div>
-                <div class="category-unit-price" v-if="!(itemData.unit.unitOfMeasurement === 'C62' && itemData.unit.content === 1)">
-                    <span>${ itemData.unit.content }</span>
-                    <span>${ itemData.unit.names.name }</span>
-                    <span v-if="itemData.variation.mayShowUnitPrice">| ${ itemData.prices.default.basePrice }</span>
-                </div>
+                
               </div>
                 <hr>
 
