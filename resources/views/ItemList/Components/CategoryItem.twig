@@ -2,6 +2,8 @@
 {{ component( "Ceres::ItemList.Components.CategoryImageCarousel") }}
 {{ component( "Ceres::ItemList.Components.ItemStoreSpecial" ) }}
 
+{% import "Ceres::Basket.Macros.AddToBasket" as AddToBasket %}
+
 {% set lang = services.sessionStorage.getLang() %}
 {% set shippingCat = config("Ceres.global.shippingCostsCategoryId") %}
 
@@ -58,10 +60,12 @@
                       <p v-if="itemData.variationProperties[0].property.id == 1">${ itemData.variationProperties[0].values.value } verkauft*</p>
                   </div>
               </div>
-                
+
               </div>
                 <hr>
-
+                <div class="hidden btn-popup">
+                {{ AddToBasket.printVueComponent( "itemData" ) }}
+                </div>
 
         </div>
     </article>
