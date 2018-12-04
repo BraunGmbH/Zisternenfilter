@@ -25,6 +25,17 @@
                 <li><a data-toggle="modal" href="#ssl"><i class="fa fa-check-circle"></i>{{ trans("Zisternenfilter::Template.headerSSL") }}</a></li>
               </ul>
                 <ul id="controlsList" class="controls-list list-inline">
+                  <li class="list-inline-item control-search visible-sm">
+                      <a class="anicon anicon-search-xcross"
+                         aria-label="toggle search"
+                         data-toggle="collapse"
+                         href="#searchBoxMobile"
+                         aria-expanded="false"
+                         aria-controls="searchBoxMobile"
+                         data-parent="#controlsList">
+                          <span class="fa fa-search" aria-hidden="true"></span>
+                      </a>
+                  </li>
                     <li class="list-inline-item control-user">
                         <user-login-handler>
                             <a data-toggle="modal">
@@ -37,17 +48,6 @@
                                 <span class="hidden-xs-down">{{ trans("Ceres::Template.loginRegister") }}</span>
                             </a>
                         </user-login-handler>
-                    </li>
-                    <li class="list-inline-item control-search visible-sm">
-                        <a class="anicon anicon-search-xcross"
-                           aria-label="toggle search"
-                           data-toggle="collapse"
-                           href="#searchBoxMobile"
-                           aria-expanded="false"
-                           aria-controls="searchBoxMobile"
-                           data-parent="#controlsList">
-                            <span class="anicon-search-item" aria-hidden="true"></span>
-                        </a>
                     </li>
                     <li class="list-inline-item control-basket">
                         <a v-toggle-basket-preview href="#" class="toggle-basket-preview">
@@ -110,12 +110,7 @@
 <div class="container-max page-header">
     <div class="row">
         <div id="searchBoxMobile" class="cmp cmp-search-box collapse">
-            {% set overrideSearchBar = LayoutContainer.show("Ceres::Search.SearchBar") %}
-            {% if overrideSearchBar | trim is empty %}
-                <item-search template="#vue-item-search"></item-search>
-            {% else %}
-                {{ overrideSearchBar | raw }}
-            {% endif %}
+            <item-search template="#vue-item-search"></item-search>
         </div>
       </div>
   </div>
