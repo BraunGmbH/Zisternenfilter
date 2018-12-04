@@ -38,6 +38,17 @@
                             </a>
                         </user-login-handler>
                     </li>
+                    <li class="list-inline-item control-search visible-sm">
+                        <a class="anicon anicon-search-xcross"
+                           aria-label="toggle search"
+                           data-toggle="collapse"
+                           href="#searchBoxMobile"
+                           aria-expanded="false"
+                           aria-controls="searchBoxMobile"
+                           data-parent="#controlsList">
+                            <span class="anicon-search-item" aria-hidden="true"></span>
+                        </a>
+                    </li>
                     <li class="list-inline-item control-basket">
                         <a v-toggle-basket-preview href="#" class="toggle-basket-preview">
                             {% if config("Ceres.header.basket_values") != "sum" %}
@@ -96,3 +107,15 @@
 {% endif %}
 
 <mobile-navigation :navigation-tree-data="{{ categories | json_encode }}" :initial-category="{{ initialCategory | json_encode }}" template="#vue-mobile-navigation"></mobile-navigation>
+<div class="container-max page-header">
+    <div class="row">
+        <div id="searchBoxMobile" class="cmp cmp-search-box collapse">
+            {% set overrideSearchBar = LayoutContainer.show("Ceres::Search.SearchBar") %}
+            {% if overrideSearchBar | trim is empty %}
+                <item-search template="#vue-item-search"></item-search>
+            {% else %}
+                {{ overrideSearchBar | raw }}
+            {% endif %}
+        </div>
+      </div>
+  </div>
