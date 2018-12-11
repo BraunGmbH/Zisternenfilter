@@ -24,7 +24,9 @@
                 <li><a data-toggle="modal" href="#lieferung"><i class="fa fa-check-circle"></i>{{ trans("Zisternenfilter::Template.headerLieferung") }}</a></li>
                 <li><a data-toggle="modal" href="#ssl"><i class="fa fa-check-circle"></i>{{ trans("Zisternenfilter::Template.headerSSL") }}</a></li>
               </ul>
+
                 <ul id="controlsList" class="controls-list list-inline">
+
                   <li class="list-inline-item control-search visible-sm">
                       <a class="anicon anicon-search-xcross"
                          aria-label="toggle search"
@@ -37,6 +39,7 @@
                       </a>
                       <span class="pipe"></span>
                   </li>
+
                     <li class="list-inline-item control-user">
                         <user-login-handler>
                             <a data-toggle="modal">
@@ -50,6 +53,7 @@
                             </a>
                         </user-login-handler>
                     </li>
+
                     <li class="list-inline-item control-basket">
                         <a v-toggle-basket-preview href="#" class="toggle-basket-preview">
                             {% if config("Ceres.header.basket_values") != "sum" %}
@@ -67,9 +71,11 @@
                             <basket-preview template="#vue-basket-preview-hover" :show-net-prices="{{ showNetPrices | json_encode }}"></basket-preview>
                         {% endif %}
                     </li>
+
                 </ul>
               </div>
             </div>
+
             <div class="container-max middle">
                 <div id="logo">
                     <a href="{{ homepageURL }}" title="{{ companyName }}">
