@@ -21,7 +21,7 @@
 
                   {% if ('item.shortDescription' in itemData or 'all' in itemData)%}
                     <hr>
-                    <p class="single-description" v-if="currentVariation.texts.shortDescription !== ''" v-html="currentVariation.texts.shortDescription"></p>
+                    <h2 class="single-description" v-if="currentVariation.texts.shortDescription !== ''" v-html="currentVariation.texts.shortDescription"></h2>
                   {% endif %}
 
                   <hr>
