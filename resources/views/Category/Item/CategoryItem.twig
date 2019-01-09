@@ -48,8 +48,6 @@
           <div id="category-description-container" class="category-description">{{ category.details[0].description | raw }}</div>
 
 
-
-
         <div id="twig-rendered-item-list" class="item-list-frame{% if ceresConfig.item.loadingAnimationType == "blur" %} blur-effect{% endif %}">
             {% if ceresConfig.item.loadingAnimationType != "blur" %}
                 {% include "Ceres::ItemList.Partials.LoadingAnimation" %}
