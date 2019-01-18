@@ -37,7 +37,7 @@
           "price": "{{ item.documents[0].data.prices.default.price.value }}",
           "availability": {% if currentVariation.stock.net == 0 %} "http://schema.org/OutOfStock" {% else %} "http://schema.org/InStock" {% endif %},
           "itemCondition": "{{ item.documents[0].data.item.condition.names.name }}",
-          "serialNumber": "{{ item.documents[0].data.variation.number }}",
+          "serialNumber": "{{ item.documents[0].data.variation.number }}"
       },
       "url": "{{itemUrl}}",
       "aggregateRating": {
