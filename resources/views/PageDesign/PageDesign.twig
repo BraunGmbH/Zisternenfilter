@@ -48,8 +48,16 @@
         "Fr 07:30-12:30",
         "Fr 13:00-14:00"
       ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Gingen an der Fils",
+        "addressRegion": "Germany",
+        "postalCode": "73333 ",
+        "streetAddress": "Hohensteinstrasse 9.1"
+      },
       "telephone": "+4971628068070",
-      "url": "https://www.zisternenfilter.com"
+      "url": "https://www.zisternenfilter.com",
+      "image": {% if ('http' in companyLogo) or ('layout/' in companyLogo) %}"{{ companyLogo }}"{% else %}"{{ plugin_path('Ceres') }}/{{ companyLogo }}"{% endif %}
 }
 </script>
 
