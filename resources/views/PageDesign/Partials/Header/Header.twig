@@ -100,12 +100,7 @@
                 </div>
         </div>
         {% include "Zisternenfilter::PageDesign.Partials.Header.Navigation" %}
-        {% if not services.template.isHome() and not services.template.isMyAccount() and not services.template.isCheckout() %}
-          <div id="breadcrumbs">
-            {% include "Zisternenfilter::PageDesign.Partials.Header.Breadcrumb" %}
-          </div>
-        {% endif %}
-</header>
+      </header>
 
 
 {% if category.linklist == "Y" %}
