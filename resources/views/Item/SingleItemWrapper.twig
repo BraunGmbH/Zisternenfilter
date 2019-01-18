@@ -12,7 +12,7 @@
     <meta property="og:image" content="{{  item.documents[0].data.images.all[0].url }}" />
     <meta property="og:description" content="{{ item.documents[0].data.texts.shortDescription }}" />
 
-    <script type="application/ld+json" > {
+    <script type="application/ld+json"> {
       "@context": "http://schema.org/",
       "@type": "Product",
       "name": "{{ ItemName.get(item.documents[0].data | itemName, item.documents[0].data.variation.bundleType) }}",
@@ -39,11 +39,11 @@
           "itemCondition": "{{ item.documents[0].data.item.condition.names.name }}",
           "serialNumber": "{{ item.documents[0].data.variation.number }}",
           "url": "{{itemUrl}}",
-          'aggregateRating': {
-              '@type': 'AggregateRating',
-              'ratingValue': '',
-              'bestRating': '',
-              'ratingCount': ''
+          "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "",
+              "bestRating": "",
+              "ratingCount": ""
             }
       },
       "depth": {
@@ -63,7 +63,8 @@
           "value": "{{ item.documents[0].data.variation.weightG }}"
       },
       "sku": "{{ item.documents[0].data.variation.number }}"
-  } < /script>
+  }
+  </script>
 
 
     <title>{{ ItemName.get(item.documents[0].data | itemName, item.documents[0].data.variation.bundleType) }}</title>
