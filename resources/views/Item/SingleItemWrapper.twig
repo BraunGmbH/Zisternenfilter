@@ -38,7 +38,7 @@
           "availability": {% if currentVariation.stock.net == 0 %} "http://schema.org/OutOfStock" {% else %} "http://schema.org/InStock" {% endif %},
           "itemCondition": "{{ item.documents[0].data.item.condition.names.name }}",
           "serialNumber": "{{ item.documents[0].data.variation.number }}",
-          "url": "{{ services.webstoreConfig.getWebstoreConfig().domainSsl }}/{{ item.documents[0].data.texts.urlPath }}/a-{{ item.documents[0].data.item.id }}",
+          "url": "{{ services.webstoreConfig.getWebstoreConfig().domainSsl }}/{{ item.documents[0].data.texts.urlPath }}/a-{{ item.documents[0].data.item.id }}"
       },
       "aggregateRating": {
           "@type": "AggregateRating",
