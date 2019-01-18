@@ -38,13 +38,13 @@
           "availability": {% if currentVariation.stock.net == 0 %} "http://schema.org/OutOfStock" {% else %} "http://schema.org/InStock" {% endif %},
           "itemCondition": "{{ item.documents[0].data.item.condition.names.name }}",
           "serialNumber": "{{ item.documents[0].data.variation.number }}",
-          "url": "{{itemUrl}}",
-          "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "{{ item.documents[0].data.item.feedbackDecimal }}",
-              "ratingCount": "{{ item.documents[0].data.item.feedbackCount }}"
-            }
       },
+      "url": "{{itemUrl}}",
+      "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "{{ item.documents[0].data.item.feedbackDecimal }}",
+          "ratingCount": "{{ item.documents[0].data.item.feedbackCount }}"
+        },
       "depth": {
           "@type": "QuantitativeValue",
           "value": "{{ item.documents[0].data.variation.lengthMM }}"
