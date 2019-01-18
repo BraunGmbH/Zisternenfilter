@@ -26,12 +26,12 @@
             {% set lastCategory = categoryBreadcrumbs | last %}
             {% if lastCategory.details is defined %}
                 <li class="breadcrumb-item active" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                  <a itemprop="item" href="{{ lastCategory.url }}"><span itemprop="name">{{ lastCategory.details[0].name }}</span></a>
+                  <a itemprop="item" href="{{lastCategory.details[0].nameUrl }}"><span itemprop="name">{{ lastCategory.details[0].name }}</span></a>
                   <meta itemprop="position" content="{{count}}" />
                 </li>
             {% else %}
                 <li class="breadcrumb-item active" v-cloak v-if="$store.state.item.variation.documents" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                      <a itemprop="item" href="{{ services.category.getURLById( category.id ) }}"><span itemprop="name">${ $store.state.item.variation.documents[0].data | itemName }</span></a>
+                      <a itemprop="item" href="${ $store.state.item.variation.documents[0].data.url }"><span itemprop="name">${ $store.state.item.variation.documents[0].data | itemName }</span></a>
                       <meta itemprop="position" content="{{count}}" />
                 </li>
             {% endif %}
