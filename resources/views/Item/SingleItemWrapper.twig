@@ -41,9 +41,8 @@
           "url": "{{itemUrl}}",
           "aggregateRating": {
               "@type": "AggregateRating",
-              "ratingValue": "",
-              "bestRating": "",
-              "ratingCount": ""
+              "ratingValue": "{{ item.documents[0].data.item.feedbackDecimal }}",
+              "ratingCount": "{{ item.documents[0].data.item.feedbackCount }}"
             }
       },
       "depth": {
