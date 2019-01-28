@@ -23,18 +23,14 @@
               {% set count = count + 1 %}
           {% endfor %}
 
-            {% set lastCategory = categoryBreadcrumbs | last %}
-            {% if lastCategory.details is defined %}
-                <li class="breadcrumb-item active" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                  <a itemprop="item" href="{{ services.webstoreConfig.getWebstoreConfig().domainSsl }}/{{lastCategory.details[0].nameUrl }}"><span itemprop="name">{{ lastCategory.details[0].name }}</span></a>
-                  <meta itemprop="position" content="{{count}}" />
-                </li>
-            {% else %}
-                <li class="breadcrumb-item active" v-cloak v-if="$store.state.item.variation.documents" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                      <a itemprop="item" href="store.state.item.variation.documents[0].data.url"><span itemprop="name">${ $store.state.item.variation.documents[0].data | itemName }</span></a>
-                      <meta itemprop="position" content="{{count}}" />
-                </li>
-            {% endif %}
+          {% set lastCategory = categoryBreadcrumbs | last %}
+         {% if lastCategory.details is defined %}
+             <li class="breadcrumb-item active"><span>{{ lastCategory.details[0].name }}</span></li>
+         {% else %}
+             <li class="breadcrumb-item active" v-cloak v-if="$store.state.item.variation.documents">
+                 <span>${ $store.state.item.variation.documents[0].data | itemName }</span>
+             </li>
+         {% endif %}
         </ul>
     </nav>
 {% endif %}
