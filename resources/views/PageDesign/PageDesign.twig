@@ -301,6 +301,12 @@
 {{ LayoutContainer.show("Ceres::Script.AfterScriptsLoaded") }}
 <script defer src="https://cdn02.plentymarkets.com/yi9z0xbw5t14/frontend/zisternenfilter/ceres/js/werk38.js"></script>
 <!--<script defer src="https://cdn02.plentymarkets.com/yi9z0xbw5t14/frontend/zisternenfilter/ceres/js/werk38-min.js"></script>-->
+
+{% if services.template.getCurrentTemplate() == 'tpl.item' %}
+	<script src="https://cdn02.plentymarkets.com/yi9z0xbw5t14/frontend/zisternenfilter/ceres/js/switchimg.js"></script>
+{% endif %}
+
+
 {{ get_filtered_tags() }}
 
 <script>
