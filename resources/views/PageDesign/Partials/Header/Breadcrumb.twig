@@ -30,10 +30,10 @@
                   <meta itemprop="position" content="{{count}}" />
                 </li>
             {% else %}
-                <li class="breadcrumb-item active" v-cloak v-if="$store.state.item.variation.documents" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                      <a itemprop="item" href="${ $store.state.item.variation.documents[0].data.url }"><span itemprop="name">${ $store.state.item.variation.documents[0].data | itemName }</span></a>
-                      <meta itemprop="position" content="{{count}}" />
-                </li>
+            <li class="breadcrumb-item active" v-cloak v-if="$store.state.item.variation.documents" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a itemprop="item" href="{{ item.documents[0].data.texts.urlPath }}/a-{{ item.documents[0].data.item.id }}"><span itemprop="name">${ $store.state.item.variation.documents[0].data | itemName }</span></a>
+                    <meta itemprop="position" content="{{count}}" />
+              </li>
             {% endif %}
         </ul>
     </nav>
